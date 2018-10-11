@@ -52,7 +52,7 @@ export default {
           }).then(({data})=>{
   
         if(data.success){
-          this.$router.push({ path: '/template' })
+          this.$router.push({ path: '/' })
         }else{
           this.$message({
               message: "用户名或密码错误",

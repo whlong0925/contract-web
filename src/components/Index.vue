@@ -5,8 +5,8 @@
       <el-submenu index="1">
         <template slot="title"><i class="el-icon-message"></i>合同管理</template>
         <el-menu-item-group>
-          <el-menu-item index="home">合同变量管理</el-menu-item>
-          <el-menu-item index="template">合同模板管理</el-menu-item>
+          <el-menu-item index="/contractManager/variable">合同变量管理</el-menu-item>
+          <el-menu-item index="/contractManager/template/list">合同模板管理</el-menu-item>
           <el-menu-item index="1-3">规则设置</el-menu-item>
           <el-menu-item index="1-4">规则检查</el-menu-item>
         </el-menu-item-group>
@@ -26,10 +26,11 @@
       </el-submenu>
     </el-menu>
   </el-aside>
-  <el-container>   
-    <el-main>
+
+    <el-main>   
+        <router-view></router-view>
     </el-main>
-  </el-container>
+
 </el-container>
 </template>
 

@@ -21,7 +21,6 @@ Vue.prototype.$request = instance
 
 import { Notification } from 'element-ui';
 instance.interceptors.response.use(data => {
-  debugger
       if(data.headers.sessionstatus && data.headers.sessionstatus == 'timeout'){
       router.push({ path: '/login' });
       Notification({
@@ -39,7 +38,6 @@ instance.interceptors.response.use(data => {
 new Vue({
   el: '#app',
   router,
-  components: { App },
   template: '<App/>',
   components: { App },
   methods: {
