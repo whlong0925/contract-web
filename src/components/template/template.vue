@@ -32,7 +32,7 @@
         </el-form>
         <div slot="footer" class="dialog-footer">
             <el-button @click="isOpen = false">取 消</el-button>
-            <el-button type="primary" @click="isOpen = false">确 定</el-button>
+            <el-button type="primary" @click="handleSubmit">确 定</el-button>
         </div>
     </el-dialog>
 </template>
@@ -55,13 +55,15 @@ export default {
             {"text":"否","value":0}
         ],
         formLabelWidth: '120px',
-        isOpen: false
+        isOpen: false,
+        isEdit: false
       };
     },
     methods: {
-        open: function (row) {
+        edit: function (row,isEdit) {
             this.isOpen= true
             this.form = row
+            this.isEdit = isEdit
         },
         /* 刷新页面 */
         refresh() {
@@ -73,6 +75,15 @@ export default {
                 this.typeList = data[0].children
                 console.log(data)
             })
+        },
+        handleSubmit(){
+            if(this.isEdit){
+                //更新
+                alert("update")
+            }else{
+                //添加
+                alert("add")
+            }
         }
     },
       created(){

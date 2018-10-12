@@ -21,7 +21,7 @@ Vue.prototype.$request = instance
 
 import { Notification } from 'element-ui';
 instance.interceptors.response.use(data => {
-      if(data.headers.sessionstatus && data.headers.sessionstatus == 'timeout'){
+    if(data.headers.sessionstatus && data.headers.sessionstatus == 'timeout'){
       router.push({ path: '/login' });
       Notification({
             title: '提示',

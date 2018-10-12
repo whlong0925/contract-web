@@ -7,8 +7,7 @@
   </el-aside>
 <el-container >
   <el-header style="background-color: #fff">
-      <el-button type="primary" @click="modify" >新建</el-button>
-      <el-button type="primary">导出</el-button>
+      <el-button type="primary" @click="modify({},false)" >新建</el-button>
   </el-header>
   <el-main>
                <el-table :data="tableData" border >
@@ -58,7 +57,7 @@
                         width="250"
                     >
                         <template scope="scope">
-                            <el-button type="text" @click="modify(scope.row)">修改</el-button>
+                            <el-button type="text" @click="modify(scope.row,true)">修改</el-button>
                             <el-button type="text" @click="del(scope.row.id)">删除</el-button>
                         </template>
                     </el-table-column>
@@ -113,8 +112,8 @@ export default {
                 this.templateTypeList = data
             })
         },
-        modify(row){
-           this.$refs.templateForm.open(row)
+        modify(row,isEdit){
+           this.$refs.templateForm.edit(row,isEdit)
         },
         handleNodeClick(rowData) {
 
